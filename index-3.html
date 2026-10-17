@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>골디락스 음악동화</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&family=Gowun+Dodum&family=Nunito:wght@700;800&display=swap">
+<style>
+:root{--bg:#FBF6EC;--card:#FFFFFF;--ink:#2A2440;--muted:#6E6683;--line:#ECE3D2;--berry:#E8735C;--plum:#7D5BB0;--honey:#E8A33D;
+--display:"Jua","Gowun Dodum",sans-serif;--body:"Gowun Dodum","Apple SD Gothic Neo",sans-serif;--en:"Nunito",Arial,sans-serif}
+@media (prefers-color-scheme:dark){:root{--bg:#1B1830;--card:#25213D;--ink:#F3EEFF;--muted:#ADA5C6;--line:#36305A;--berry:#F08A74;--plum:#B497D6;--honey:#F5C518;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55}
+.wrap{max-width:640px;margin:0 auto;padding:40px max(16px,env(safe-area-inset-right,0px)) 56px max(16px,env(safe-area-inset-left,0px));display:grid;gap:24px}
+.eyebrow{font-family:var(--en);font-weight:800;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--berry)}
+h1{font-family:var(--display);font-weight:400;font-size:clamp(30px,8vw,42px);line-height:1.15;margin:6px 0 4px}
+.sub{margin:0;color:var(--muted)}
+.list{display:grid;gap:12px}
+a.item{display:grid;grid-template-columns:56px 1fr auto;gap:14px;align-items:center;padding:16px;background:var(--card);border:1px solid var(--line);border-radius:16px;color:inherit;text-decoration:none}
+a.item:hover,a.item:focus-visible{border-color:var(--plum);outline:none}
+.ic{width:56px;height:56px;border-radius:14px;display:grid;place-items:center;font-family:var(--display);font-size:24px;color:#fff}
+.t{font-family:var(--display);font-size:19px;margin:0}
+.d{margin:2px 0 0;color:var(--muted);font-size:14px}
+.go{font-family:var(--en);font-weight:800;color:var(--plum);font-size:20px}
+a.item.soon{opacity:.5;pointer-events:none}a.item.soon .go{font-family:var(--body);font-size:13px;color:var(--muted)}
+footer{color:var(--muted);font-size:13px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><span class="eyebrow">Goldilocks and the Three Bears</span><h1>골디락스 음악동화</h1><p class="sub">영어 음악동화 발표 자료를 한곳에 모았어요.</p></header>
+<nav class="list">
+<a class="item" href="narration.html"><span class="ic" style="background:var(--plum)">해</span><span><p class="t">해설</p><p class="d">해설자 대사 16줄 · 원어민 음성 · 한글 발음</p></span><span class="go">›</span></a>
+<a class="item" href="goldilocks.html"><span class="ic" style="background:var(--berry)">골</span><span><p class="t">골디락스</p><p class="d">골디락스 대사 · 원어민 음성 · 한글 발음</p></span><span class="go">›</span></a>
+<a class="item" href="papa-bear.html"><span class="ic" style="background:var(--honey)">아</span><span><p class="t">아빠곰</p><p class="d">아빠곰 대사 · 원어민 음성 · 한글 발음</p></span><span class="go">›</span></a>
+<a class="item" href="mama-bear.html"><span class="ic" style="background:var(--plum)">엄</span><span><p class="t">엄마곰</p><p class="d">엄마곰 대사 · 원어민 음성 · 한글 발음</p></span><span class="go">›</span></a>
+<a class="item" href="baby-bear.html"><span class="ic" style="background:#5BA88C">아</span><span><p class="t">아기곰</p><p class="d">아기곰 대사 · 원어민 음성 · 한글 발음</p></span><span class="go">›</span></a>
+</nav>
+<footer>브로카 음악동화 · 엠아이음악</footer>
+</div>
+<script>
+// 아직 올라오지 않은 페이지는 '준비 중'으로 보여요. 파일을 올리면 자동으로 열려요.
+document.querySelectorAll('a.item').forEach(a=>{fetch(a.getAttribute('href'),{method:'HEAD',cache:'no-store'}).then(r=>{if(!r.ok)soon(a)}).catch(()=>{})});
+function soon(a){a.classList.add('soon');a.setAttribute('aria-disabled','true');a.querySelector('.go').textContent='준비 중'}
+</script>
+</body>
+</html>
